@@ -1,85 +1,181 @@
-function fitElementToParent(el, padding) {
-    var timeout = null;
-    function resize() {
-      if (timeout) clearTimeout(timeout);
-      anime.set(el, {scale: 1});
-      var pad = padding || 0;
-      var parentEl = el.parentNode;
-      var elOffsetWidth = el.offsetWidth - pad;
-      var parentOffsetWidth = parentEl.offsetWidth;
-      var ratio = parentOffsetWidth / elOffsetWidth;
-      timeout = setTimeout(anime.set(el, {scale: ratio}), 10);
+const cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', e => {
+    cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;")
+})
+
+document.addEventListener('click', () => {
+    cursor.classList.add("expand");
+
+    setTimeout(() => {
+        cursor.classList.remove("expand");
+    }, 500)
+})
+
+
+
+
+
+  const container = document.querySelector('.container');
+  const containerHeight = Math.round(container.getBoundingClientRect().height);
+
+
+function addSVGTicks() {
+  const strokeWidth = 10;
+  const stroke = 'black';
+  const xmlns = 'http://www.w3.org/2000/svg';
+  const svgElem = document.createElementNS(xmlns, "svg");
+  svgElem.setAttributeNS(null, "height", containerHeight);
+
+  const g = document.createElementNS(xmlns,"g");
+  const svgFrag = new DocumentFragment();
+
+  _.times(12, i => {
+    const tick = document.createElementNS(xmlns, "path");
+    tick.setAttributeNS(null, "width", '5');
+    tick.classList = `.tick .tick--${i}`;
+    tick.setAttributeNS(null, "height", containerHeight/2);
+    // tick.setAttributeNS(null, "viewBox", 'm 0 0 l 0 100');
+    tick.setAttributeNS(null, "d", 'm 0 0 l 0 50');
+    tick.setAttributeNS(null, "stroke-width", strokeWidth);
+    tick.setAttributeNS(null, "stroke", stroke);
+    // tick.setAttributeNS(null, "transform", `rotate(30deg)`);
+    svgFrag.appendChild(tick);
+  });
+
+  g.appendChild(svgFrag);
+  svgElem.appendChild(g);
+  container.appendChild(svgElem);
+}
+
+const now = new Date();
+let secs = now.getSeconds();
+let mins = now.getMinutes();
+let hours = now.getHours();
+
+console.log(secs, mins, hours)
+
+// Assuming `secs`, `mins`, and `hours` are defined variables representing the current seconds, minutes, and hours.
+
+let secRotate = Math.round(secs / 60 * 360); // Rotation for the second hand
+let bigRotate = Math.round(mins / 60 * 360 + 6 * secs / 60); // Rotation for the minute hand
+let smallRotate = Math.round(hours % 12 * 30 + 30 * mins / 60); // Rotation for the hour hand
+
+
+console.log(bigRotate)
+
+
+// let secRotate = 6;
+// let smallRotate = 30 + 6 * _.random(50);
+// let bigRotate = 30 + 6 * _.random(50);
+
+////////ANIME JS
+
+function handleSec() {
+  anime({
+    targets: '.sec-hand',
+    duration: 300,
+    delay: 700,
+    translateX: -0.75,
+    rotate: () => secRotate += 6,
+    easeing: 'spring(0, 90, 10, 10)',
+    complete: handleSec
+  })
+}
+
+function handleBig(start = 0) {
+  anime({
+    targets: '.big-hand',
+    duration: ((60-mins) * 60 - secs) * 1000,
+    translateX: -1.5,
+    easing: 'linear',
+    rotate: [start, 360],
+    complete: (target) => { 
+      mins = 0;
+      secs = 0;
+    handleBig(0)}
+  })
+}
+
+function handleSmall(start = 0) {
+  anime({
+    targets: '.small-hand',
+    duration: (60-mins) * 60 * 1000,
+    rotate: [start,  start + start % 30],
+    translateX: -2,
+    easing: 'linear',
+    complete: (target) => { console.log(document.querySelector('.sec-hand').style.translateX)
+    handleSmall(start + 30)}
+  })
+}
+
+
+/////GSAP
+
+
+function handleSecGSAP() {
+  
+  return gsap.to('.sec-hand', {
+    duration: .35,
+    delay: .65,
+    // delay: 700,
+    // translateX: -0.75,
+    rotation: () => secRotate += 6,
+    ease: "elastic.out(1, 0.4)",// "back.out(2.4)",
+    onComplete: handleSecGSAP
+  });
+}
+
+function handleBigGSAP(start = 0) {
+  console.log('startttt', start)
+  gsap.fromTo('.big-hand', {
+    rotation: start
+  }, {
+    duration: ((60 - mins) * 60 - secs),
+    ease: "linear",
+    rotation: 360,
+    onComplete: () => {
+      mins = 0;
+      secs = 0;
+      handleBigGSAP();
     }
-    resize();
-    window.addEventListener('resize', resize);
-  }
-  
-  var sphereAnimation = (function() {
-  
-    var sphereEl = document.querySelector('.sphere-animation');
-    var spherePathEls = sphereEl.querySelectorAll('.sphere path');
-    var pathLength = spherePathEls.length;
-    var hasStarted = false;
-    var aimations = [];
-  
-    fitElementToParent(sphereEl);
-  
-    var breathAnimation = anime({
-      begin: function() {
-        for (var i = 0; i < pathLength; i++) {
-          aimations.push(anime({
-            targets: spherePathEls[i],
-            stroke: {value: ['#cccccc', '#cccccc'], duration: 500},
-            translateX: [2, -4],
-            translateY: [2, -4],
-            easing: 'easeOutQuad',
-            autoplay: false
-          }));
-        }
-      },
-      update: function(ins) {
-        aimations.forEach(function(animation, i) {
-          var percent = (1 - Math.sin((i * .35) + (.0022 * ins.currentTime))) / 2;
-          animation.seek(animation.duration * percent);
-        });
-      },
-      duration: Infinity,
-      autoplay: false
-    });
-  
-    var introAnimation = anime.timeline({
-      autoplay: false
-    })
-    .add({
-      targets: spherePathEls,
-      strokeDashoffset: {
-        value: [anime.setDashoffset, 0],
-        duration: 3900,
-        easing: 'easeInOutCirc',
-        delay: anime.stagger(190, {direction: 'reverse'})
-      },
-      duration: 2000,
-      delay: anime.stagger(60, {direction: 'reverse'}),
-      easing: 'linear'
-    }, 0);
-  
-    var shadowAnimation = anime({
-        targets: '#sphereGradient',
-        x1: '25%',
-        x2: '25%',
-        y1: '0%',
-        y2: '75%',
-        duration: 30000,
-        easing: 'easeOutQuint',
-        autoplay: false
-      }, 0);
-  
-    function init() {
-      introAnimation.play();
-      breathAnimation.play();
-      shadowAnimation.play();
+  });
+}
+
+function handleSmallGSAP(start = 0) {
+  return gsap.fromTo('.big-hand', {
+    rotation: start
+  }, {
+    duration: ((60 - mins) * 60 - secs),
+    ease: "linear",
+    rotation: 360,
+    onComplete: () => {
+      hours = ( hours + 1 ) % 12;
+      smallRotate = hours * 30;
+      handleSmallGSAP(smallRotate);
     }
-    
-    init();
+  });
+}
+
+function tiktok() {
+  const timeline = gsap.timeline({timeScale: 2});
+  gsap.set('.sec-hand', {
+    rotation: secRotate
+  });
+  gsap.set('.small-hand', {
+    rotation: smallRotate
+  });
+  gsap.set('.big-hand', {
+    rotation: bigRotate
+  });
   
-  })();
+  timeline.add(handleSecGSAP());
+  timeline.add(handleBigGSAP(bigRotate), '<');
+  timeline.add(handleSmallGSAP(smallRotate), '<');
+  
+  
+  timeline.timeScale(2);
+  // handleSmallGSAP(smallRotate);
+}
+
+const tickingTimeline = tiktok();
