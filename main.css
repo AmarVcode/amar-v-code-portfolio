@@ -9,6 +9,10 @@
   scroll-behavior: smooth;
 }
 
+h2{
+  font-family: 'Playfair Display', serif;
+}
+
 .coloredbg{
   background: linear-gradient(130deg,#690d9125,#ff6e6143);
   height: 100vh;

@@ -64,3 +64,15 @@ window.addEventListener("mousemove", (e) => {
     eye.style.transform = `rotate(${dir}rad)`;
   });
 });
+
+
+
+//code for first arrow in hero section
+
+let animation = lottie.loadAnimation({
+  container: document.getElementById('animation-container'), // the dom element that will contain the animation
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'path/to/your/animation.json' // the path to the animation json
+});
