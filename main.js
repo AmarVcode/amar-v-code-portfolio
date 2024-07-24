@@ -70,9 +70,18 @@ window.addEventListener("mousemove", (e) => {
 //code for first arrow in hero section
 
 let animation = lottie.loadAnimation({
-  container: document.getElementById('animation-container'), // the dom element that will contain the animation
+  container: document.getElementById('animation-container-arrow-1'), // the dom element that will contain the animation
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'path/to/your/animation.json' // the path to the animation json
+  path: './json/arrow1.json' // the path to the animation json
+});
+
+
+let animation2 = lottie.loadAnimation({
+  container: document.getElementById('animation-container-arrow-2'), // the dom element that will contain the animation
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: './json/arrow2.json' // the path to the animation json
 });
