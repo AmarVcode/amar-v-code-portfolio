@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 
 
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
@@ -11,30 +11,44 @@
   scroll-behavior: smooth;
 }
 
-h2{
+h2 {
   font-family: 'Playfair Display', serif;
 }
 
-.coloredbg{
-  background: linear-gradient(130deg,#690d9125,#ff6e6143);
+.coloredbg {
+  background: linear-gradient(130deg, #690d9125, #ff6e6143);
   height: 100vh;
-  background-image: url('./images/bg-1.jpg');
+  background-image: url('./images/vecteezy_natural-landscape-mountain-vector-art-sun-set_19654971.jpg');
   background-repeat: no-repeat;
   background-position: center;
-
-back}
-
-#primary-section-my h1{
-  font-family: 'Playfair Display', serif;
-  font-size: 5rem;
 }
 
-#mydytext{
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+}
+
+#primary-section-my {
+  position: relative;
+  z-index: 100;
+}
+
+#primary-section-my h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  z-index: 100;
+}
+
+#mydytext {
   font-weight: lighter;
   font-family: 'Playfair Display', serif;
 }
 
-#primary-section-my h2{
+#primary-section-my h2 {
   font-size: 2rem;
   max-width: 800px;
   text-align: center;
@@ -44,31 +58,32 @@ back}
 
 
 
-#primary-section-my h1{
-color: transparent;
-background: linear-gradient(90deg,#6A0D91,#FF6F61);
-width: fit-content;
-background-clip: text;
-margin: auto;
-padding-top: 4rem;
-}
-
-.gradient-text{
+#primary-section-my h1 {
   color: transparent;
-  background: linear-gradient(90deg,#6A0D91,#FF6F61);
-width: fit-content;
-background-clip: text;
+  background: linear-gradient(90deg, #6A0D91, #FF6F61);
+  width: fit-content;
+  background-clip: text;
+  margin: auto;
+  padding-top: 4rem;
 }
 
-section{
+.gradient-text {
+  color: transparent;
+  background: linear-gradient(90deg, #6A0D91, #FF6F61);
+  width: fit-content;
+  background-clip: text;
+}
+
+section {
   max-width: 1200px;
   margin: auto;
 }
-#primary-section-my p{
-max-width: 800px;
-margin: auto;
-text-align: center;
-margin-top: 1rem;
+
+#primary-section-my p {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .custom-btn {
@@ -83,16 +98,16 @@ margin-top: 1rem;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+    7px 7px 20px 0px rgba(0, 0, 0, .1),
+    4px 4px 5px 0px rgba(0, 0, 0, .1);
   outline: none;
 }
 
 
-.btn-12{
+.btn-12 {
   position: relative;
-  border:none;
+  border: none;
   box-shadow: none;
   height: 40px;
   line-height: 42px;
@@ -100,15 +115,17 @@ margin-top: 1rem;
   perspective: 230px;
 }
 
-.my-btn-purple span{
-  background: rgb(106,13,145); /* Fallback for older browsers */
-  background: linear-gradient(0deg, rgba(106,13,145,1) 0%, rgba(122,23,171,1) 100%);  
+.my-btn-purple span {
+  background: rgb(106, 13, 145);
+  /* Fallback for older browsers */
+  background: linear-gradient(0deg, rgba(106, 13, 145, 1) 0%, rgba(122, 23, 171, 1) 100%);
 }
 
-.my-btn-red span{
-  background: rgb(106,13,145); /* Fallback for older browsers */
-  background: linear-gradient(0deg, rgba(106,13,145,1) 0%, rgba(122,23,171,1) 100%);
-  
+.my-btn-red span {
+  background: rgb(106, 13, 145);
+  /* Fallback for older browsers */
+  background: linear-gradient(0deg, rgba(106, 13, 145, 1) 0%, rgba(122, 23, 171, 1) 100%);
+
 
 }
 
@@ -119,11 +136,11 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   position: absolute;
   width: 170px;
   height: 40px;
-  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+    7px 7px 20px 0px rgba(0, 0, 0, .1),
+    4px 4px 5px 0px rgba(0, 0, 0, .1);
   border-radius: 5px;
-  margin:0;
+  margin: 0;
   text-align: center;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -131,12 +148,13 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   -webkit-transition: all .3s;
   transition: all .3s;
 }
+
 .btn-12 span:nth-child(1) {
   box-shadow:
-   -7px -7px 20px 0px #fff9,
-   -4px -4px 5px 0px #fff9,
-   7px 7px 20px 0px #0002,
-   4px 4px 5px 0px #0001;
+    -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001;
   -webkit-transform: rotateX(90deg);
   -moz-transform: rotateX(90deg);
   transform: rotateX(90deg);
@@ -144,6 +162,7 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   -moz-transform-origin: 50% 50% -20px;
   transform-origin: 50% 50% -20px;
 }
+
 .btn-12 span:nth-child(2) {
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
@@ -152,39 +171,42 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   -moz-transform-origin: 50% 50% -20px;
   transform-origin: 50% 50% -20px;
 }
+
 .btn-12:hover span:nth-child(1) {
-  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+    7px 7px 20px 0px rgba(0, 0, 0, .1),
+    4px 4px 5px 0px rgba(0, 0, 0, .1);
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
   transform: rotateX(0deg);
 }
+
 .btn-12:hover span:nth-child(2) {
-  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
- color: transparent;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+    7px 7px 20px 0px rgba(0, 0, 0, .1),
+    4px 4px 5px 0px rgba(0, 0, 0, .1);
+  color: transparent;
   -webkit-transform: rotateX(-90deg);
   -moz-transform: rotateX(-90deg);
   transform: rotateX(-90deg);
 }
 
-.btn-wrapper-cus{
+.btn-wrapper-cus {
   display: flex;
   justify-content: center;
   padding: 1rem;
   gap: 20px;
 }
 
-.animate-img{
-width: 100%;
-margin: auto;
-display: grid;
-grid-template-columns: 100%;
-justify-items: center;
+.animate-img {
+  width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-items: center;
 }
-.animate-img img{
+
+.animate-img img {
   margin-top: 80px;
   width: 250px;
 }
@@ -193,11 +215,13 @@ justify-items: center;
   display: flex;
   justify-content: center;
 }
+
 .eyes {
   width: 500px;
   display: flex;
   justify-content: space-around;
 }
+
 .eye {
   position: relative;
   width: 45px;
@@ -206,6 +230,7 @@ justify-items: center;
   border-radius: 50%;
   margin-top: -200px;
 }
+
 .eye::before {
   content: "";
   position: absolute;
@@ -217,47 +242,52 @@ justify-items: center;
 }
 
 
-#eye1{
+#eye1 {
   position: relative;
   top: -40px;
   right: -80px;
 }
 
-#eye2{
+#eye2 {
   position: relative;
   top: -40px;
   left: -80px;
 }
 
 
-#animation-container-arrow-1{
-height: 40px;
-transform: rotateX(180deg);
-position: relative;
-margin-bottom: -30px;
-left: 200px;
+#animation-container-arrow-1 {
+  height: 40px;
+  transform: rotateX(180deg);
+  position: relative;
+  margin-bottom: -30px;
+  left: 200px;
 }
 
-#animation-container-arrow-2{
+#animation-container-arrow-2 {
   height: 60px;
   transform: rotateZ(-150deg);
   position: relative;
   margin-bottom: -80px;
   left: 150px;
   bottom: -140px;
-  }
+}
 
-  .handfancy {
-    font-family: 'Shadows Into Light', cursive; /* Handwriting font applied */
-  }
+.handfancy {
+  font-family: 'Shadows Into Light', cursive;
+  /* Handwriting font applied */
+}
 
-  #teddy-talk{
-    color: #6A0D91;
-    font-size: 1.4rem;
-    margin-bottom: -1.4rem;
-    text-align: center;
-    position: relative;
-    top: 100px;
-    left: 200px;
-    transform: rotateZ(20deg);
-  }
+#teddy-talk {
+  color: #6A0D91;
+  font-size: 1.4rem;
+  margin-bottom: -1.4rem;
+  text-align: center;
+  position: relative;
+  top: 100px;
+  left: 650px;
+  transform: rotateZ(20deg);
+  background-color: rgba(255, 255, 255, 0.7);
+  width: fit-content;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
