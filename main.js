@@ -34,3 +34,33 @@ function removeherotext(){
 
 
 writethehero()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//follow eye code
+
+window.addEventListener("mousemove", (e) => {
+  let mouseX = e.pageX;
+  let mouseY = e.pageY;
+  document.querySelectorAll(".eye").forEach((eye) => {
+    let eyeX = eye.offsetLeft;
+    let eyeY = eye.offsetTop;
+    var dx = mouseX - eyeX;
+    var dy = mouseY - eyeY;
+    let dir = Math.atan2(dy, dx) ;
+    eye.style.transform = `rotate(${dir}rad)`;
+  });
+});
