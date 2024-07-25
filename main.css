@@ -11,8 +11,15 @@
   scroll-behavior: smooth;
 }
 
+img{
+  width: 100%;
+}
+
 h2 {
   font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  text-align: center;
+  margin: auto;
 }
 
 .coloredbg {
@@ -21,6 +28,7 @@ h2 {
   background-image: url('./images/vecteezy_natural-landscape-mountain-vector-art-sun-set_19654971.jpg');
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
 }
 
 .overlay {
@@ -74,10 +82,10 @@ h2 {
   background-clip: text;
 }
 
-section {
+/* section {
   max-width: 1200px;
   margin: auto;
-}
+} */
 
 #primary-section-my p {
   max-width: 800px;
@@ -284,10 +292,86 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   text-align: center;
   position: relative;
   top: 100px;
-  left: 650px;
+  left: 150px;
   transform: rotateZ(20deg);
   background-color: rgba(255, 255, 255, 0.7);
   width: fit-content;
   padding: 5px 20px;
   border-radius: 20px;
+  text-align: center;
+  margin: auto;
+}
+
+
+
+
+.scroll_container {
+  height: 400vh;
+}
+
+.horizontal_scroll {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 400vw;
+  will-change: transform;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scroll_contents {
+  height: 100%;
+  width: 100vw;
+}
+
+.sticky_wrap {
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+
+
+.yellow {
+  background-color: #ffff00;
+}
+
+.green {
+  background-color: #05ff00;
+}
+
+.blue {
+  background-color: #2835f8;
+}
+
+
+.left {
+  margin-top: 5vh;
+  margin-left: 5vw;
+}
+
+.right {
+  text-align: right;
+  margin-top: 85vh;
+  margin-right: 5vw;
+}
+
+#second-section h2{
+  text-align: left;
+  margin: 0;
+  padding: 2rem;
+}
+
+.fix-wid-div{
+  max-width: 1200px;
+  margin: auto;
+}
+
+.grid-3-my{
+display: grid;
+grid-template-columns: 30% 30% 30%;
+align-items: center;
+justify-content: center;
+height: 80vh;
 }
