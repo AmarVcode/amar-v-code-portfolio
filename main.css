@@ -368,10 +368,36 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   margin: auto;
 }
 
-.grid-3-my{
+.grid-2-my{
 display: grid;
-grid-template-columns: 30% 30% 30%;
+grid-template-columns: 50% 50%;
 align-items: center;
 justify-content: center;
-height: 80vh;
+height: 550px;
+}
+
+.grid-2-my img{
+  height: 500px;
+  width: auto;
+}
+
+
+#second-section .grid-2-my p{
+  font-size: 1.4rem;
+  line-height: 1.6;
+  word-spacing: 5px;
+}
+
+.handfancy span{
+  color: transparent;
+  background: linear-gradient(90deg, #6A0D91, #FF6F61);
+  width: fit-content;
+  background-clip: text;
+  font-family: 'Shadows Into Light', cursive;
+
+}
+
+h2 span{
+  
+  font-family: 'Playfair Display', serif;
 }
