@@ -24,12 +24,13 @@ h2 {
 
 .coloredbg {
   background: linear-gradient(130deg, #690d9125, #ff6e6143);
-  height: 100vh;
+  height: 110vh;
   background-image: url('./images/vecteezy_natural-landscape-mountain-vector-art-sun-set_19654971.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
+
 
 .overlay {
   position: absolute;
@@ -374,6 +375,8 @@ grid-template-columns: 50% 50%;
 align-items: center;
 justify-content: center;
 height: 550px;
+z-index: 10;
+position: relative;
 }
 
 .grid-2-my img{
@@ -401,3 +404,68 @@ h2 span{
   
   font-family: 'Playfair Display', serif;
 }
+
+.my-halfbgsecond{
+  background: linear-gradient(20deg, #ff6e6146,white,white);
+}
+
+.all-icon-language{
+  display: flex;
+  justify-content: space-around;
+  margin-top: -40vh;
+}
+
+.all-icon-language img{
+width: 80px;
+z-index: 0;
+transform: scale(1.5);
+  z-index: 0;
+  position: relative;
+  opacity: 0.5;
+}
+
+.all-icon-language img:nth-child(1){
+  top: -50vh;
+  left: -20vh;
+}
+
+.all-icon-language img:nth-child(2){
+  top: -10vh;
+  left: -30vh;
+}
+
+.all-icon-language img:nth-child(3){
+  top: 30vh;
+  left: 30vh;
+}
+
+.all-icon-language img:nth-child(4){
+  top: -30vh;
+  left: 0vh;
+}
+
+.all-icon-language img:nth-child(5){
+  top: -50vh;
+  left: 0vh;
+}
+
+.all-icon-language img:nth-child(6){
+  top: 26vh;
+  left: 0vh;
+}
+
+.all-icon-language img:nth-child(7){
+  top: -52vh;
+  left: 0vh;
+}
+
+.all-icon-language img:nth-child(8){
+  top: -35vh;
+  left: 20vh;
+}
+
+.all-icon-language img:nth-child(9){
+  top: 26vh;
+  left: 0vh;
+}
+

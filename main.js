@@ -112,3 +112,7 @@ function transform(section) {
 
   scrollSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`
 }
+
+
+
+
